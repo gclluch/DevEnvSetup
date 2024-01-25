@@ -1,0 +1,63 @@
+SETUP - MAC
+
+
+# Alacritty
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew install alacritty
+
+# ~/.config/alacritty/alacritty.yml
+
+
+############ ZSH
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# ~/.zshrc
+source ~/.zshrc
+
+# powerline fonts
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
+
+# fzf
+brew install fzf
+# To install useful key bindings and fuzzy completion:
+$(brew --prefix)/opt/fzf/install -y -y -y
+
+# install zsh-256color, zsh-autosuggestions, zsh-syntax-highlighting
+cd $ZSH_CUSTOM/plugins && git clone https://github.com/chrissicool/zsh-256color 
+cd
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+
+# VSCODE 
+brew install --cask visual-studio-code
+# add extensions
+
+
+# UTILS
+
+TMUX - https://www.redhat.com/sysadmin/introduction-tmux-linux
+brew install tmux
+
+Powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+bat
+brew install bat
+
+exa 
+brew install exa
+
+Ripgrep (rg) - fast grep respecting gitignore
+brew install ripgrep 
+
+https://github.com/jesseduffield/lazygit
+brew install lazygit
